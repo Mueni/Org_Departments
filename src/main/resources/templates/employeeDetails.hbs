@@ -1,0 +1,80 @@
+{{#partial "content"}}
+    <hr>
+    <div class="table-div">
+        <table class="table table-hover table-responsive table-sm">
+            <thead class="text-danger" style="font-size: 25px">
+            <tr>
+                <th scope="col" colspan="2">Employee Details</th>
+            </tr>
+            </thead>
+            <tbody class="bg-light">
+            <tr>
+                <th scope="row">First Name:</th>
+                <td>{{employee.firstName}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Last Name:</th>
+                <td>{{employee.lastName}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Phone Number:</th>
+                <td>{{employee.phoneNo}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Email:</th>
+                <td>{{employee.email}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Staff ID:</th>
+                <td>{{employee.staffId}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Role:</th>
+                <td>{{employee.role}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Position:</th>
+                <td>{{position.name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Department:</th>
+                <td>{{department.name}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Date Created:</th>
+                <td>{{employee.dateCreated}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Last Updated:</th>
+                <td>{{employee.updated}}</td>
+            </tr>
+            <tr>
+                <th scope="row" colspan="2"><a href="/employees/{{employee.id}}/edit">Edit Employee</a>  |
+                    <a href="" data-bs-toggle="modal" data-bs-target="#staticDeleteEmployee">Delete Employee</a>  |
+                    <a href="/" >Home</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Delete Employee modal -->
+    <div class="modal fade" id="staticDeleteEmployee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete Employee</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Confirm you are about to delete the Employee!!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='/employees/{{employee.id}}/delete';">Delete</button>
+                    <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{/partial}}
+
+{{> layout.hbs}}

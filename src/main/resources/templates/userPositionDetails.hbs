@@ -1,0 +1,58 @@
+{{#partial "content"}}
+    <hr>
+    <h3 class="index-title">{{position.name}}s  <span class="text-muted title-span"><strong>Position Created On:</strong>  {{position.dateCreated}}</span>
+    </h3>
+    <div class="table-div">
+        <table class="table table-hover table-responsive table-sm">
+            <thead class="table-info text-center">
+            <tr>
+                <th scope="col">Staff ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Date Created</th>
+                <th scope="col">Last Updated</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider bg-light">
+            {{#each employees}}
+                <tr class="text-center">
+                    <th scope="row"><a href="/employees/{{id}}/{{positionId}}/{{departmentId}}">{{staffId}}</a></th>
+                    <td>{{firstName}}</td>
+                    <td>{{lastName}}</td>
+                    <td>{{userName}}</td>
+                    <td>{{role}}</td>
+                    <td>{{dateCreated}}</td>
+                    <td>{{updated}}</td>
+                </tr>
+            {{/each}}
+            <tr>
+                <th scope="row" colspan="6"><a href="/employees/new">Create New Employee</a>  |
+                    <a href="/positions/{{position.id}}/edit">Edit Position</a>  |
+                    <a href="" data-bs-toggle="modal" data-bs-target="#staticDeletePosition">Delete Position</a>  |
+                    <a href="/" >Home</a></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Delete Position -->
+    <div class="modal fade" id="staticDeletePosition" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Delete Position</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Confirm you are about to delete the Position!!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='/positions/{{position.id}}/delete';">Delete</button>
+                    <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
